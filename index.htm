@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://hello.xjtu.edu.cn/yingxin/ -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>用户中心 </title>
+    <link rel="shortcut icon" href="http://hello.xjtu.edu.cn/yingxin/themes/default/images/favicon.ico">
+    <link rel="bookmark" href="http://hello.xjtu.edu.cn/yingxin/themes/default/images/favicon.ico">
+    <link rel="stylesheet" href="./用户中心_files/layui.css">
+    <link rel="stylesheet" href="./用户中心_files/jquery.fullpage.min.css">
+    <link rel="stylesheet" href="./用户中心_files/swiper.min.css">
+    <link rel="stylesheet" href="./用户中心_files/style.css">
+    <!-- =============== Page scripts ===============-->
+    <script src="./用户中心_files/jquery.js"></script>
+    <script src="./用户中心_files/waves.js"></script>
+    <script src="./用户中心_files/jquery.fullpage.min.js"></script>
+    <script src="./用户中心_files/main.js"></script>
+    <script src="./用户中心_files/common.js"></script>
+    <script src="./用户中心_files/footer.js"></script>
+    <script src="./用户中心_files/user-center.js"></script>
+    <script src="./用户中心_files/header.js"></script>
+    <link id="layuicss-laydate" rel="stylesheet" href="./用户中心_files/laydate.css" media="all">
+    <link id="layuicss-layer" rel="stylesheet" href="./用户中心_files/layer.css" media="all">
+    <link id="layuicss-skincodecss" rel="stylesheet" href="./用户中心_files/code.css" media="all">
+</head>
+
+<body>
+<div class="wrapper page bg-light-gray">
+    <header class="header bg-white nav-bg-white page-header">
+        <a class="logo" href="http://hello.xjtu.edu.cn/yingxin/"><img src="./用户中心_files/logo.png" alt="" id="logo_img"></a>
+        <div class="nav-right">
+            <!-- <div class="searchbox">
+              <div class="layui-input-block input-group-icon"><i class="layui-icon layui-icon-search"></i>
+              <input class="layui-input search-input" type="text" name="title" required="" lay-verify="required" placeholder="输入关键字" autocomplete="off"></div>
+            </div> -->
+            <ul class="layui-nav nav">
+                <li class="layui-nav-item" id="index" style="display: none;"><a
+                        href="http://hello.xjtu.edu.cn/yingxin/">首页 Home Page</a></li>
+                <li class="layui-nav-item" id="server" style=""><a href="javascript:;">业务大厅 The business hall<span
+                        class="layui-nav-more"></span></a>
+                    <dl id="headerMenuList" class="layui-nav-child box-shadow layui-anim layui-anim-upbit">
+                        <dd><a class="icon-pay" href="javascript:;" onclick="handleProcedure(3)">财务缴费 Payment</a></dd>
+                        <dd><a class="icon-info" href="javascript:;" onclick="handleProcedure(101)">校友信息 Alumni
+                            Details</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item" id="noticeMenu" style=""><a
+                        href="http://hello.xjtu.edu.cn/yingxin/notice/list">通知中心 News</a></li>
+                <li class="layui-nav-item" id="userCenter" style=""><a href="javascript:;"
+                                                                       onclick="toPage(&#39;user/center&#39;)">个人中心 My
+                    Information</a></li>
+                <!--<li class="layui-nav-item" id="userCenter" style="display: none;">-->
+                <!--</li>-->
+                <span class="layui-nav-bar"></span></ul>
+            <ul class="layui-nav nav-user" id="userInfo-header">
+                <li class="user-item user-info layui-nav-item layui-show"><a href="javascript:void(0);"
+                                                                             onclick="memberDetail()">陈政浩<img
+                        src="./用户中心_files/70B57FA51EF84C0C792EB7940B8C20006C896CA28E84938F3301C348BC350CAE.jpg"
+                        onerror="javascript:this.src=&#39;/yingxin/themes/default/images/default.png&#39;"><span
+                        class="layui-nav-more"></span></a><a class="meaage-badge" href="javascript:;"
+                                                             onclick="toPage(&#39;notice/messageList&#39;)"
+                                                             id="messageNum"><span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child box-shadow">
+                        <dd><a class="layui-icon layui-icon-template-1" href="javascript:;"
+                               onclick="toPage(&#39;user/donation&#39;)">余额捐赠 Card Balance Donation</a></dd>
+                        <dd><a class="icon-logout" href="javascript:;" onclick="logout()">退出登录 log Out</a></dd>
+                    </dl>
+                </li>
+                <span class="layui-nav-bar"></span></ul>
+            <div id="myInfo" style="display:none;">
+                <div class="member-modal-content">
+                    <div class="layui-row item"><span class="label" id="my_name">姓名（Name）：</span></div>
+                    <div class="layui-row item"><span class="label" id="my_sno">学号（Student ID）：</span></div>
+                    <div class="layui-row item" id="teacher1"><span class="label"
+                                                                    id="my_teacher1">导员（Supervisor）：</span></div>
+                    <div class="layui-row item" id="teacher2"><span class="label"
+                                                                    id="my_teacher2">导师（Instructor）：</span></div>
+                    <div class="layui-row item" id="academy"><span class="label" id="my_academy">书院（College）：</span>
+                    </div>
+                    <div class="layui-row item"><span class="label" id="my_department">学院（School）：</span></div>
+                    <div class="layui-row item"><span class="label" id="my_profession">专业（Major）：</span></div>
+                    <div class="layui-row item"><span class="label" id="my_class">班级（Class）：</span></div>
+                    <div class="layui-row item"><span class="label" id="my_room">宿舍（dormitory）：</span></div>
+                    <div class="layui-row item"><span class="label"
+                                                      id="my_phoneNumber">电话（Permanent Phone Number）：</span></div>
+                    <div class="layui-row item"><span class="label" id="my_email">邮箱（E-mail）：</span></div>
+                    <div class="layui-row item"><span class="label" id="my_wechat">微信（WeChat）：</span></div>
+                    <div class="layui-row item"><span class="label" id="my_qq">QQ：</span></div>
+                    <!--<div class="layui-row item"><span class="label" id="my_origin">生源地：</span></div>-->
+                </div>
+            </div>
+            <!-- <button class="layui-btn layui-btn-radius layui-btn-sm layui-btn-primary" onclick="changeLanguage()" id="changeLanguage">中文/EN </button> -->
+        </div>
+    </header>
+    <div class="page-wrapper page-usercenter process-content-line3">
+        <div class="qq-code-box" id="qq-code" style=""><img src="./用户中心_files/lixiao.png"></div>
+        <div class="user-content layui-row layui-col-space20">
+            <div class="userinfo layui-col-md2">
+                <div class="userbox-in box-shadow">
+                    <div class="userbox-in-content" id="userInfo"><img
+                            src="./用户中心_files/70B57FA51EF84C0C792EB7940B8C20006C896CA28E84938F3301C348BC350CAE.jpg"
+                            onerror="javascript:this.src=&#39;/yingxin/themes/default/images/default.png&#39;"><h4
+                            class="text-ellipsis">欢迎您，陈政浩</h4>
+                        <p>学号（Student ID ） ：3118101907</p>
+                        <p>书院（College）：未知书院</p>
+                        <p>学院（School）：机械工程学院</p>
+                        <p>专业（Major）：机械工程</p>
+                        <p>导师（Supervisor）：周光辉</p></div>
+                </div>
+            </div>
+            <div class="process-content layui-col-md10">
+                <div class="userbox-in box-shadow userbox-notice" id="userbox-notice">
+                    <div class="meaasge">
+                        <a class="meaasge-container">
+                            <div id="hotNoticePanel" class="notice-panel">
+                                <div class="sixin notice-left"><i class="layui-badge-dot"></i><i
+                                        class="layui-icon layui-icon-speaker"></i><span>通知News：</span></div>
+                                <div class="notice-mid">
+                                    <div class="layui-carousel" id="message" lay-anim="updown" lay-indicator="none"
+                                         style="width: 100%; height: 30px;" lay-arrow="none">
+                                        <div carousel-item="" id="hotNoticeList">
+                                            <div class="sx-item" onclick="goNewsDetail(&#39;83&#39;,&#39;hot&#39;)">
+                                                实验室安全考试须知
+                                            </div>
+                                            <div class="sx-item" onclick="goNewsDetail(&#39;103&#39;,&#39;hot&#39;)">
+                                                关于校园卡充值方式的通知
+                                            </div>
+                                            <div class="sx-item" onclick="goNewsDetail(&#39;126&#39;,&#39;hot&#39;)">
+                                                2019级秋季研究生新生网申公寓指南
+                                            </div>
+                                            <div class="sx-item layui-this"
+                                                 onclick="goNewsDetail(&#39;101&#39;,&#39;hot&#39;)">
+                                                关于2019级本科新生在入学报到前进行选课的通知
+                                            </div>
+                                            <div class="sx-item" onclick="goNewsDetail(&#39;125&#39;,&#39;hot&#39;)">
+                                                2019级秋季本科生新生网申公寓指南
+                                            </div>
+                                            <div class="sx-item" onclick="goNewsDetail(&#39;124&#39;,&#39;hot&#39;)">
+                                                兴庆校区及雁塔校区学生公寓服务与管理办法
+                                            </div>
+                                        </div>
+                                        <div class="layui-carousel-ind" style="margin-top: -54px;">
+                                            <ul>
+                                                <li class=""></li>
+                                                <li class=""></li>
+                                                <li class=""></li>
+                                                <li class="layui-this"></li>
+                                                <li class=""></li>
+                                                <li class=""></li>
+                                            </ul>
+                                        </div>
+                                        <button class="layui-icon layui-carousel-arrow" lay-type="sub"></button>
+                                        <button class="layui-icon layui-carousel-arrow" lay-type="add"></button>
+                                    </div>
+                                </div>
+                                <div class="more notice-right" onclick="goNoticeList()" style="cursor: pointer"><span>查看全部 More </span><i
+                                        class="layui-icon layui-icon-right"></i></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="userbox-in box-shadow userbox-in-bar">
+                    <div class="payment-statistics panel">
+                        <div class="panel-head"><span class="panel-mark"></span>
+                            <h3 class="panel-title">办理进程 Processing Progress</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p id="progressHandleProcedure" class="progress-data"><em>62%</em><span>（已办理8项</span><span>未办理5</span><span>共13项）（Processed：8，</span><span>Incompleteness：5，</span><span>All：13）</span>
+                            </p>
+                            <div class="progress-bar" id="progress-bar">
+                                <span style="background-color: rgb(28, 144, 230); width: 84px;"></span>
+                                <span style="background-color: rgb(28, 144, 230); width: 84px;"></span>
+                                <span style="background-color: rgb(28, 144, 230); width: 84px;"></span>
+                                <span style="background-color: rgb(28, 144, 230); width: 84px;"></span>
+                                <span style="background-color: rgb(28, 144, 230); width: 84px;"></span>
+                                <span style="background-color: rgb(28, 144, 230); width: 84px;"></span>
+                                <span style="background-color: rgb(28, 144, 230); width: 84px;"></span>
+                                <span style="background-color: rgb(28, 144, 230); width: 84px;"></span>
+                                <span style="width: 84px;"></span>
+                                <span style="width: 84px;"></span>
+                                <span style="width: 84px;"></span>
+                                <span style="width: 84px;"></span>
+                                <span style="width: 84px;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="userbox-in box-shadow process-unfinished">
+                    <div class="payment-statistics panel">
+                        <div class="panel-head"><span class="panel-mark"></span>
+                            <h3 class="panel-title">未办事项 Incompleteness</h3>
+                        </div>
+                        <div class="panel-body" id="cardInfo">
+                            <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-free-mode">
+                                <div id="swiperWrapper" class="swiper-wrapper process-crad-content"
+                                     style="transform: translate3d(0px, 0px, 0px);">
+                                    <div class="swiper-slide bg-green-linear process-crad swiper-slide-active"
+                                         style="margin-right: 30px;">
+                                        <div class="crad-content"><span class="iconbox"><i
+                                                class="icon-success"></i></span>
+                                            <div class="card-right">
+                                                <div class="item-right-inner"><h4>导师确认</h4><h6
+                                                        style="white-space:nowrap;text-overflow: ellipsis; overflow: hidden;">
+                                                    Confirmation by Supervisor</h6>
+                                                    <p>2021-06-01至(to)2021-12-31</p></div>
+                                                <span class="disabled-tip"><span class="tip-zh">现场办理</span><span
+                                                        class="tip-en">On-site Process</span></span></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide bg-red-linear process-crad swiper-slide-next"
+                                         style="margin-right: 30px;">
+                                        <div class="crad-content"><span class="iconbox"><i
+                                                class="icon-address"></i></span>
+                                            <div class="card-right">
+                                                <div class="item-right-inner"><h4>户口迁出</h4><h6
+                                                        style="white-space:nowrap;text-overflow: ellipsis; overflow: hidden;"></h6>
+                                                    <p>2021-06-01至(to)2021-12-31</p></div>
+                                                <span class="disabled-tip"><span class="tip-zh">现场办理</span><span
+                                                        class="tip-en">On-site Process</span></span></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide bg-orange-linear process-crad" style="margin-right: 30px;">
+                                        <div class="crad-content"><span class="iconbox"><i
+                                                class="icon-emblem"></i></span>
+                                            <div class="card-right">
+                                                <div class="item-right-inner"><h4>党组织关系</h4><h6
+                                                        style="white-space:nowrap;text-overflow: ellipsis; overflow: hidden;"></h6>
+                                                    <p>2021-06-01至(to)2021-12-31</p></div>
+                                                <span class="disabled-tip"><span class="tip-zh">现场办理</span><span
+                                                        class="tip-en">On-site Process</span></span></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide bg-purple-linear process-crad" style="margin-right: 30px;">
+                                        <div class="crad-content"><span class="iconbox"><i
+                                                class="icon-member"></i></span>
+                                            <div class="card-right">
+                                                <div class="item-right-inner"><h4>团组织关系</h4><h6
+                                                        style="white-space:nowrap;text-overflow: ellipsis; overflow: hidden;"></h6>
+                                                    <p>2021-06-01至(to)2021-12-31</p></div>
+                                                <span class="disabled-tip"><span class="tip-zh">现场办理</span><span
+                                                        class="tip-en">On-site Process</span></span></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide bg-green-linear process-crad" style="margin-right: 30px;">
+                                        <div class="crad-content"><span class="iconbox"><i class="icon-graduation"></i></span>
+                                            <div class="card-right">
+                                                <div class="item-right-inner"><h4>毕结业证/学位证核发</h4><h6
+                                                        style="white-space:nowrap;text-overflow: ellipsis; overflow: hidden;">
+                                                    Diploma Delivery/Degree Issuances</h6>
+                                                    <p>2021-06-01至(to)2021-12-31</p></div>
+                                                <span class="disabled-tip"><span class="tip-zh">现场办理</span><span
+                                                        class="tip-en">On-site Process</span></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="user-content process-record user-content-timeline">
+            <div class="userbox-in box-shadow">
+                <div class="panel">
+                    <div class="panel-head relatuve"><span class="panel-mark"></span>
+                        <h3 class="panel-title">手续办理记录 Record on Progression</h3><font
+                                style="color: #FF5722; font-size: 13px"><b>（注：红色为未办理，绿色为已办理，黄色为非必要办理 Please note that
+                            red indicates not handled, green indicates handled, yellow indicates not
+                            necessary）</b></font>
+                        <a class="link-guiji" href="http://hello.xjtu.edu.cn/yingxin/user/track">查看个人轨迹 Trace Personal
+                            Application &gt;&gt;</a>
+                    </div>
+                    <div id="recordContent" class="panel-body">
+                        <div class="radio-groups">
+                            <form class="layui-form float-right radio-groups"
+                                  action="http://hello.xjtu.edu.cn/yingxin/">
+                                <div class="layui-form-item">
+                                    <div class="layui-input-block">
+                                        <input type="radio" name="sex" lay-filter="handleCount" value="0" title="全部 All"
+                                               checked="">
+                                        <div class="layui-unselect layui-form-radio layui-form-radioed"><i
+                                                class="layui-anim layui-icon"></i>
+                                            <div>全部 All</div>
+                                        </div>
+                                        <input type="radio" name="sex" lay-filter="handleCount" value="1"
+                                               title="未办理 Incompleteness">
+                                        <div class="layui-unselect layui-form-radio"><i
+                                                class="layui-anim layui-icon"></i>
+                                            <div>未办理 Incompleteness</div>
+                                        </div>
+                                        <input type="radio" name="sex" lay-filter="handleCount" value="2"
+                                               title="已办理 Processed">
+                                        <div class="layui-unselect layui-form-radio"><i
+                                                class="layui-anim layui-icon"></i>
+                                            <div>已办理 Processed</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tables-content">
+                            <ul class="time-line-hide time-line" id="ul-content-in">
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-pay x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">财务缴费 Payment</span><a class="layui-btn layui-btn-sm"
+                                                                                   onclick="handleProcedure(&#39;3&#39;)">查看
+                                            / Enter the view</a></div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-ok"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>财务处老师</td>
+                                                <td>82665411</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-dormroom x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">宿舍退宿 Accommodation Checking out</span></div>
+                                        <div class="tips"><span>*手续说明（Illustration）：</span><span>宿管系统退宿后，数据会自动同步，创新港的同学前往各区物业办理</span>
+                                        </div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-close"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                                <td>82664996</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-item x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">阅读本借阅 Book Borrowing for Reading</span></div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-ok"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>图书馆老师</td>
+                                                <td>82668100</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-info x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">校友信息 Alumni Details</span><a class="layui-btn layui-btn-sm"
+                                                                                          onclick="handleProcedure(&#39;101&#39;)">查看
+                                            / Enter the view</a></div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-ok"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-item x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">图书借阅 Book Borrowing</span></div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-ok"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>图书馆老师</td>
+                                                <td>82668100</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-item x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">论文审核 Dissertation Verification</span></div>
+                                        <div class="tips"><span>*手续说明（Illustration）：</span><span>系统自动同步数据，如数据有误请联系图书馆，82668103（兴庆校区） 82655067（雁塔校区）</span>
+                                        </div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-ok"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>图书馆</td>
+                                                <td>82668103， 82655067</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-success x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">导师确认 Confirmation by Supervisor</span></div>
+                                        <div class="tips"><span>*手续说明（Illustration）：</span><span>请导师登陆该系统确认，若导师无法办理，可授权教务员进行代办。</span>
+                                        </div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-close"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>学生导师</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-synjonespay x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">暂付款  </span></div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-ok"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>财务处老师</td>
+                                                <td>82665411</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-pay x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">国家助学金贷款  </span></div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-ok"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>财务处老师</td>
+                                                <td>82665411</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-address x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">户口迁出  </span></div>
+                                        <div class="tips"><span>*手续说明（Illustration）：</span><span>请前往保卫处办理，该手续为非必要手续，不影响离校</span>
+                                        </div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-circle"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-emblem x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">党组织关系  </span></div>
+                                        <div class="tips"><span>*手续说明（Illustration）：</span><span>该手续为非必办手续，不影响离校</span>
+                                        </div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-circle"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>学院老师</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-member x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">团组织关系  </span></div>
+                                        <div class="tips"><span>*手续说明（Illustration）：</span><span>该手续为非必办手续，不影响离校</span>
+                                        </div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-circle"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-graduation x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">毕结业证/学位证核发 Diploma Delivery/Degree Issuances</span></div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-close"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="time-line" id="ul-content-out">
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-pay x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">财务缴费 Payment</span><a class="layui-btn layui-btn-sm"
+                                                                                   onclick="handleProcedure(&#39;3&#39;)">查看
+                                            / Enter the view</a></div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-ok"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>财务处老师</td>
+                                                <td>82665411</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-dormroom x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">宿舍退宿 Accommodation Checking out</span></div>
+                                        <div class="tips"><span>*手续说明（Illustration）：</span><span>宿管系统退宿后，数据会自动同步，创新港的同学前往各区物业办理</span>
+                                        </div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-close"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                                <td>82664996</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-item x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">阅读本借阅 Book Borrowing for Reading</span></div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-ok"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>图书馆老师</td>
+                                                <td>82668100</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-info x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">校友信息 Alumni Details</span><a class="layui-btn layui-btn-sm"
+                                                                                          onclick="handleProcedure(&#39;101&#39;)">查看
+                                            / Enter the view</a></div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-ok"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-item x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">图书借阅 Book Borrowing</span></div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-ok"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>图书馆老师</td>
+                                                <td>82668100</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-item x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">论文审核 Dissertation Verification</span></div>
+                                        <div class="tips"><span>*手续说明（Illustration）：</span><span>系统自动同步数据，如数据有误请联系图书馆，82668103（兴庆校区） 82655067（雁塔校区）</span>
+                                        </div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-ok"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>图书馆</td>
+                                                <td>82668103， 82655067</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-success x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">导师确认 Confirmation by Supervisor</span></div>
+                                        <div class="tips"><span>*手续说明（Illustration）：</span><span>请导师登陆该系统确认，若导师无法办理，可授权教务员进行代办。</span>
+                                        </div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-ok"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>学生导师</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-synjonespay x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">暂付款  </span></div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-ok"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>财务处老师</td>
+                                                <td>82665411</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-pay x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">国家助学金贷款  </span></div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-ok"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>财务处老师</td>
+                                                <td>82665411</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-address x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">户口迁出  </span></div>
+                                        <div class="tips"><span>*手续说明（Illustration）：</span><span>请前往保卫处办理，该手续为非必要手续，不影响离校</span>
+                                        </div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-circle"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-emblem x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">党组织关系  </span></div>
+                                        <div class="tips"><span>*手续说明（Illustration）：</span><span>该手续为非必办手续，不影响离校</span>
+                                        </div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-circle"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>学院老师</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-member x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">团组织关系  </span></div>
+                                        <div class="tips"><span>*手续说明（Illustration）：</span><span>该手续为非必办手续，不影响离校</span>
+                                        </div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-circle"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="finised">
+                                    <div class="time"><p>2021-06-01</p>
+                                        <p class="name">开始时间 Starting Date</p></div>
+                                    <i class="item-icon iconbg-c-purple icon-graduation x64"></i>
+                                    <div class="info">
+                                        <div class="name"><span class="layui-badge-dot layui-bg-black"></span><span
+                                                class="text">毕结业证/学位证核发 Diploma Delivery/Degree Issuances</span></div>
+                                        <table class="layui-table">
+                                            <colgroup>
+                                                <col width="50">
+                                                <col width="200">
+                                                <col width="80">
+                                                <col width="80">
+                                                <col width="80">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th>办理状态 Processing Status</th>
+                                                <th>办理地点 Processing Place</th>
+                                                <th>截止时间 Deadline</th>
+                                                <th>联系老师 Contact Teacher</th>
+                                                <th>联系方式 Permanent Phone Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><i class="layui-icon icon-state-style layui-icon-close"></i></td>
+                                                <td><a style="position:relative;display:block;padding-right:40px;">暂无地点（Nothing
+                                                    Temporally）</a></td>
+                                                <td>2021-12-31</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                                <td>暂无（Nothing Temporally）</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./用户中心_files/layui.all.js"></script>
+    <script src="./用户中心_files/swiper.min.js"></script>
+    <footer class="footer bg-dark-gray" style="position:relative;">
+        <!-- <div class="layui-container">
+          <div class="layui-row">
+            <div class="layui-col-md4 footer-left">
+              <h4>咨询服务</h4>
+              <p>招生电话：029-82668320</p>
+              <p>工作日：09:00-17:00</p>
+              <p>节假日：10:00-15:00</p>
+            </div>
+            <div class="layui-col-md6 layui-col-md-offset2 footer-right">
+              <div>
+                <p>关注“西安交通大学网络中心”</p>
+                <p>获取校园最新消息</p>
+              </div><img class="qrcode" th:src="@{/images/Bitmap@2x.png}" alt=""/>
+            </div>
+          </div>
+        </div> -->
+        <div class="footer-copyright" id="footer_content">© 2019 西安交通大学.版权所有</div>
+        <!-- <footer class="footer bg-dark-gray">版权所有：哈尔滨新中新电子股份有限公司 Copyright &#169 synjones electronic co.,ltd</footer> -->
+    </footer>
+</div>
+
+
+<div id="qb-sougou-search" style="display: none; opacity: 0;"><p>搜索</p>
+    <p class="last-btn">复制</p>
+    <iframe src="./用户中心_files/saved_resource.html"></iframe>
+</div>
+</body>
+<div id="qbTrans-pageTrans-dialog"><!----> <span class="qbTrans-pageTrans-dialog-success" style="display: none;"></span>
+    <span class="qbTrans-pageTrans-dialog-text">是否将当前网页翻译成中文</span>
+    <div class="qbTrans-pageTrans-dialog-btn">网页翻译</div>
+    <div class="qbTrans-pageTrans-dialog-btn-empty">中英对照</div> <!---->
+    <div class="qbTrans-pageTrans-dialog-close"><span class="qbTrans-pageTrans-dialog-close-text">关闭</span> <span
+            class="qbTrans-pageTrans-dialog-arrow-down"></span>
+        <ul class="qbTrans-pageTrans-dialog-menu" style="display: none;">
+            <li class="qbTrans-pageTrans-dialog-menu-item">此网站不再提醒</li>
+            <li class="qbTrans-pageTrans-dialog-menu-item">所有网站不再提醒</li> <!----></ul>
+    </div>
+</div>
+</html>
